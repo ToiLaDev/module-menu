@@ -3,7 +3,6 @@
 namespace ToiLaDev\Menu\Models;
 
 use ToiLaDev\Models\Base;
-use ToiLaDev\Traits\CastTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
 

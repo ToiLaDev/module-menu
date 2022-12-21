@@ -49,28 +49,8 @@ class MenuService extends RepositoryService implements MenuServiceImpl
         return $menu?$this->firstRepo->newQuery()->defaultOrder()->withDepth()->descendantsOf($menu->id):null;
     }
 
-    public function toSelect($menus) {
-        $menus = $menus->toFlatTree();
-        $options = [];
-        foreach ($menus as $menu) {
-            $options[] = [
-                'title' => $this->depthName($menu->title, $menu->depth),
-                'value' => $menu->id
-            ];
-        }
-        return $options;
-    }
-
     public function toTree($menus) {
         return $menus->toTree();
-    }
-
-    protected function depthName($name, $depth, $prefix = '-') {
-        while ($depth > 0) {
-            $depth--;
-            $name = $prefix . $name;
-        }
-        return $name;
     }
 
 }
